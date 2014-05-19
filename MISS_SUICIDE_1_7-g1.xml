@@ -8,7 +8,8 @@
 <!--  Gamma 1 -->
 <!-- ******************************************************************************************** -->
 <!-- all the things that exist at the start of the mission -->
-<mission_data version="2.0">
+
+<mission_data version="1.7">
   <start name="BayCon Suicide Mission">
     <create count="250" type="nebulas" startX="98490.0" startY="0.0" startZ="14851.0" endX="5490.0" endY="0.0" endZ="20851.0" randomRange="5500" randomSeed="1500" />
     <create type="player" x="48587.0" y="0.0" z="72929.0" angle="0" name="Artemis" />
@@ -17,21 +18,18 @@
     
     <!--  Establishes location and type of enemies, neutrals, the Artemis, and starbase. Sets mission to begin after 30 sec  -->
     <create type="station" x="31703.0" y="0.0" z="89404.0" angle="0" name="Station Honor" raceKeys="TSN Friendly" hullKeys="base"/>
-    	<set_object_property name="Station Honor" property="shieldState" value="2000"/>
-    <create type="neutral" x="48757.0" y="0.0" z="52248.0" angle="231" name="SS Murphys Law" raceKeys="TSN friendly" hullKeys="Cargo" />
+    <set_object_property name="Station Honor" property="shieldState" value="2000"/>
+    <create type="neutral" x="48757.0" y="0.0" z="52248.0" angle="231" name="SS Murphy's Law" raceKeys="TSN friendly" hullKeys="Cargo" />
     <create type="neutral" x="17320.0" y="0.0" z="3191.0" angle="215.5" name="TSN Manticore" raceKeys="TSN friendly" hullKeys="Destroyer medium" />
     <create type="neutral" x="93660.0" y="0.0" z="4297.0" angle="174.3" name="TSN Gryphon" raceKeys="TSN friendly" hullKeys="Escort small" />
-    <create type="enemy" x="49320.0" y="0.0" z="48680.0" angle="174.3" name="Dominion" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="1" />
-    <create type="enemy" x="56047.0" y="0.0" z="50759.0" angle="133.7" name="Overlord" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="1" />
-    <create type="enemy" x="44298.0" y="0.0" z="50127.0" angle="210.2" name="Relentless" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="1" />
-    <create type="enemy" x="46596.0" y="0.0" z="48510.0" angle="184.2" name="Calamity" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="1" />
-    <create type="enemy" x="52809.0" y="0.0" z="48595.0" angle="165.2" name="Devastator" raceKeys="Skaraan enemy" hullKeys="Defiler small" fleetnumber="1" />
+    <create type="enemy" x="49320.0" y="0.0" z="42680.0" angle="174.3" name="Dominion" raceKeys="Torgoth enemy" hullKeys="Battleship medium" fleetnumber="1" />
+    <create type="enemy" x="56047.0" y="0.0" z="44759.0" angle="133.7" name="Overlord" raceKeys="Torgoth enemy" hullKeys="Battleship medium" fleetnumber="1" />
+    <create type="enemy" x="44298.0" y="0.0" z="44127.0" angle="210.2" name="Relentless" raceKeys="Torgoth enemy" hullKeys="Battleship medium" fleetnumber="1" />
+    <create type="enemy" x="46596.0" y="0.0" z="42510.0" angle="184.2" name="Calamity" raceKeys="Torgoth enemy" hullKeys="Battleship medium" fleetnumber="1" />
+    <create type="enemy" x="52809.0" y="0.0" z="42595.0" angle="165.2" name="Devastator" raceKeys="Torgoth enemy" hullKeys="Battleship medium" fleetnumber="1" />
     <create type="enemy" x="39362.0" y="0.0" z="96978.0" angle="40.3" name="Chimera One" raceKeys="Arvonian enemy" hullKeys="Fighter fighter" fleetnumber="2" />
-    <add_ai name ="Chimera One" type ="CHASE_STATION" value1="8000" value2="1000" />
     <create type="enemy" x="30426.0" y="0.0" z="97659.0" angle="344.5" name="Chimera Two" raceKeys="Arvonian enemy" hullKeys="Fighter fighter" fleetnumber="2" />
-    <add_ai name ="Chimera Two" type ="CHASE_STATION" value1="8000" value2="1000" />
     <create type="enemy" x="22596.0" y="0.0" z="97914.0" angle="305.7" name="Chimera Three" raceKeys="Arvonian enemy" hullKeys="Fighter fighter" fleetnumber="2" />
-    <add_ai name ="Chimera Three" type ="CHASE_STATION" value1="8000" value2="1000" />
 
     <!-- Neutrals are set to follow orders to give COMMS something to do -->
     <add_ai type="FOLLOW_COMMS_ORDERS" name="TSN Manticore" />
@@ -204,7 +202,7 @@
     <set_variable name="ADMcommF" value="1" />
   </event>
   
-  <!-- Winning and losing the mission -->
+  <!-- Winning and losing the mission 
   <event>
   	<if_variable name="ADMcommF" comparator="EQUALS" value="1" />
   	<if_fleet_count fleetnumber="2" comparator="LESS_EQUAL" value="0"/>
@@ -231,13 +229,13 @@
 	<set_variable name="terminate" value="1"/>
   </event>
   
-<!--  <event>
+  <event>
 	<if_not_exists name="SS Murphys Law"/>
 	<if_variable name="terminate" comparator="!=" value="1"/>
 	<big_message title="DEFEAT!" subtitle1="Hamak Base was destroyed and the" subtitle2="Torgoths conquered the sector."/>
 	<set_timer name="endint_timer" seconds="10"/>
 	<set_variable name="terminate" value="1"/>
-  </event> -->
+  </event>
   
   <event>
    <if_variable name="terminate" comparator="=" value="1"/>
@@ -245,7 +243,7 @@
    <if_timer_finished name="endint_timer"/>
    <set_variable name="gameOver" value="1"/>
  </event>
-
+-->
 
 
 
